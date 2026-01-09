@@ -22,14 +22,4 @@ pip install -r requirements.txt
 python manage.py migrate
 python manage.py runserver
 
-## Frontend runs on: http://localhost:5173
 
-## Backend runs on: http://127.0.0.1:8000
-
-## Notes
-This project is designed for scalability:
-Modular frontend structure
-RESTful API
-Token-based authentication
-
-Easy DB replacement
