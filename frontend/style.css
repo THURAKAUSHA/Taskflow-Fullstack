@@ -157,3 +157,14 @@ button.btn-small {
   flex: 0 0 auto;
   display: inline-block;
 }
+/* Header layout */
+#header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* pushes logout to right */
+  margin-bottom: 15px;
+}
+
+#header h1 {
+  margin: 0;
+}
