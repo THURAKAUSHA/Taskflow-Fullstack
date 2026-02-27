@@ -30,15 +30,17 @@ function App() {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    setLoading(true);
-    try {
-      const list = await apiRequest('/tasks/');
-      setTasks(list || []);
-    } catch (e) {
-      console.error('could not fetch', e);
-    }
-    setLoading(false);
-  };
+    (async () => {
+      setLoading(true);
+      try {
+        const list = await apiRequest('/tasks/');
+        setTasks(list || []);
+      } catch (e) {
+        console.error('could not fetch', e);
+      }
+      setLoading(false);
+    })();
+  }, []);
 
   const handleLogin = (u) => {
     setUser(u);
