@@ -28,18 +28,8 @@ function App() {
   const [user, setUser] = useState(null);
   const [tasks, setTasks] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [showpassword, setShowPassword] = useState(false);
-
 
   useEffect(() => {
-    const token = localStorage.getItem("access");
-    if (token) {
-      setUser({});
-      loadTasks();
-    }
-  }, []);
-
-  const loadTasks = async () => {
     setLoading(true);
     try {
       const list = await apiRequest('/tasks/');
@@ -104,28 +94,10 @@ function LoginForm({ onLogin }) {
         type: 'text', placeholder: 'Username', value: username,
         onChange: (e) => setUsername(e.target.value), required: true
       }),
-      React.createElement('div', { style: { position: 'relative' } },
-        React.createElement('input', {
-          type: showPassword ? 'text' : 'password',
-          placeholder: 'Password',
-          value: password,
-          onChange: (e) => setPassword(e.target.value),
-          required: true,
-          style: { width: '100%', paddingRight: '60px' }
-       }),
-        React.createElement('span', {
-          onClick: () => setShowPassword(!showPassword),
-          style: {
-          position: 'absolute',
-          right: '10px',
-          top: '50%',
-          transform: 'translateY(-50%)',
-          cursor: 'pointer',
-          fontSize: '14px',
-          color: '#2a8fbd'
-          }
-        }, showPassword ? 'Hide' : 'Show')
-      ),
+      React.createElement('input', {
+        type: 'password', placeholder: 'Password', value: password,
+        onChange: (e) => setPassword(e.target.value), required: true
+      }),
       React.createElement('button', { className: 'btn' }, isSignup ? 'Create Account' : 'Login'),
       React.createElement('p', {
         className: 'toggle',
