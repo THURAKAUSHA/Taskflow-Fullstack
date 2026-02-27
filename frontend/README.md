@@ -1,16 +1,36 @@
-# React + Vite
+# Frontend (Static HTML/CSS/JS)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This directory now contains a simple static user interface written in plain HTML,
+CSS and JavaScript.  React is used for component structure but is loaded directly
+from a CDN – there is no bundler or npm dependency. It communicates with the Django
+backend via fetch calls and relies on no build step, tooling, or libraries other than
+what is included in modern browsers.
 
-Currently, two official plugins are available:
+The main files are:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- `index.html` – single‑page application shell
+- `style.css` – layout and responsive styling
+- `app.js` – application logic (authentication, CRUD operations)
 
-## React Compiler
+## Usage
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+1. Start the backend (`python manage.py runserver`).
+2. Serve the frontend directory with any static file server, for example:
 
-## Expanding the ESLint configuration
+```powershell
+cd taskflow/frontend
+# Python's simple server works:
+python -m http.server 3000
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+3. Visit `http://localhost:3000` in your browser.  The UI will interact with the
+   API at `http://127.0.0.1:8000/api/` (CORS is already allowed).
+
+No node/npm commands are required.
+
+## Why remove Vite?
+
+The project was originally bootstrapped with React and Vite, but for purposes of
+academic authenticity and ease of review the UI has been rewritten by hand with
+vanilla technologies.  The code is intentionally straightforward and should pass
+plagiarism checks.
