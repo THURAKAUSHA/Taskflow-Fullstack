@@ -140,3 +140,20 @@ button.btn-small {
     width: 100%;
   }
 }
+/* Fix task form width on desktop */
+#task-form {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: 600px;
+}
+
+#task-form input {
+  flex: 1;
+}
+
+#task-form button {
+  width: auto !important;   /* force stop stretching */
+  flex: 0 0 auto;
+  display: inline-block;
+}
