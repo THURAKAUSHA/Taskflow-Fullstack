@@ -1,4 +1,4 @@
-/* Basic Reset */
+/* ---------- Basic Reset ---------- */
 * {
   box-sizing: border-box;
 }
@@ -9,44 +9,46 @@ body {
   background-color: #f4f4f4;
 }
 
-/* Main Container */
+/* ---------- Main Container ---------- */
 #app {
-  max-width: 600px;
-  margin: 20px auto;
-  padding: 15px;
+  max-width: 650px;
+  margin: 25px auto;
+  padding: 20px;
 }
 
-/* Headings */
+/* ---------- Headings ---------- */
 h1 {
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
-/* Form Card */
+/* ---------- Form Card ---------- */
 form {
   background: #ffffff;
-  padding: 15px;
-  border-radius: 5px;
+  padding: 18px;
+  border-radius: 6px;
 }
 
-/* Inputs */
+/* ---------- Inputs ---------- */
 input[type="text"],
 input[type="password"] {
   width: 100%;
-  padding: 8px;
-  margin-bottom: 10px;
+  padding: 10px 12px;
+  margin-bottom: 12px;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 5px;
+  font-size: 15px;
 }
 
-/* Buttons */
+/* ---------- Buttons (Common Style) ---------- */
 button {
-  padding: 8px 12px;
+  padding: 8px 14px;
   border: none;
-  border-radius: 4px;
+  border-radius: 5px;
   cursor: pointer;
+  font-size: 14px;
 }
 
-/* Login button */
+/* ---------- Login Button ---------- */
 button.btn {
   width: 100%;
   background-color: #2a8fbd;
@@ -57,35 +59,39 @@ button.btn:hover {
   background-color: #247ea0;
 }
 
-/* Add button */
+/* ---------- Add Button ---------- */
 button.btn-add {
   background-color: #4caf50;
   color: white;
+  padding: 8px 16px;
+  white-space: nowrap; /* prevents stretching */
 }
 
 button.btn-add:hover {
-  background-color: #45a049;
+  background-color: #43a047;
 }
 
-/* Logout button */
+/* ---------- Logout Button ---------- */
 #logout {
   background-color: #f44336;
   color: white;
-  margin-bottom: 10px;
-}
-
-/* Task form layout */
-#task-form {
-  display: flex;
-  gap: 8px;
   margin-bottom: 15px;
 }
 
-#task-form input {
-  flex: 1;
+/* ---------- Task Form Layout ---------- */
+#task-form {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
 }
 
-/* Task list */
+#task-form input {
+  flex: 1; /* input takes remaining space */
+  margin-bottom: 0;
+}
+
+/* ---------- Task List ---------- */
 ul.tasks {
   list-style: none;
   padding: 0;
@@ -93,35 +99,41 @@ ul.tasks {
 
 ul.tasks li {
   background: white;
-  padding: 10px;
-  margin-bottom: 8px;
-  border-radius: 4px;
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 6px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-/* Completed task */
+/* ---------- Completed Task ---------- */
 ul.tasks li.completed span.title {
   text-decoration: line-through;
   color: gray;
 }
 
 span.title {
-  margin-left: 8px;
+  margin-left: 10px;
   flex: 1;
 }
 
-/* Small delete button */
+/* ---------- Delete Button ---------- */
 button.btn-small {
   background: none;
   font-size: 16px;
 }
 
-/* Simple mobile adjustment */
+/* ---------- Mobile Adjustment ---------- */
 @media (max-width: 500px) {
+
   #task-form {
     flex-direction: column;
+    align-items: stretch;
+  }
+
+  #task-form input {
+    width: 100%;
   }
 
   button.btn-add {
